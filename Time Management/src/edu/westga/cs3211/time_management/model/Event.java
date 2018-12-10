@@ -1,6 +1,6 @@
 package edu.westga.cs3211.time_management.model;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 /** Store basic information for an event.
  * 
@@ -11,8 +11,8 @@ import java.time.LocalDateTime;
 public class Event {
 	
 	private String name;
-	private LocalDateTime startTime;
-	private LocalDateTime endTime;
+	private LocalDate startTime;
+	private LocalDate endTime;
 	private String location;
 	private String description;
 	private Visibility visibility;
@@ -22,7 +22,6 @@ public class Event {
 	 * @precondition EventDataValidator.checkName(name) &&
 	 * 				 EventDataValidator.checkStartTime(start) &&
 	 * 				 EventDataValidator.checkEndTime(start, end) &&
-	 * 				 EventDataValidator.checkAttendees(attendees) &&
 	 * 				 location != null &&
 	 * 				 description != null &&
 	 * 				 visibility != null
@@ -31,7 +30,6 @@ public class Event {
 	 * 				  getEndTime() == endTime &&
 	 * 				  getLocation() == location &&
 	 * 				  getDescription() == description &&
-	 * 				  getAttendees() == attendees &&
 	 * 				  getVisibility() == visibility
 	 * 
 	 * @param name name of the event
@@ -41,7 +39,7 @@ public class Event {
 	 * @param description description of the event
 	 * @param visibility visibility of the event
 	 */
-	public Event(String name, LocalDateTime start, LocalDateTime end, String location, String description, Visibility visibility) {
+	public Event(String name, LocalDate start, LocalDate end, String location, String description, Visibility visibility) {
 		if (!EventDataValidator.checkName(name)) {
 			throw new IllegalArgumentException("Invalid name");
 		}
@@ -86,7 +84,7 @@ public class Event {
 	 * 
 	 * @return the start time of the event
 	 */
-	public LocalDateTime getStartTime() {
+	public LocalDate getStartTime() {
 		return this.startTime;
 	}
 
@@ -97,7 +95,7 @@ public class Event {
 	 * 
 	 * @return the end time of the event
 	 */
-	public LocalDateTime getEndTime() {
+	public LocalDate getEndTime() {
 		return this.endTime;
 	}
 

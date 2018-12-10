@@ -1,6 +1,6 @@
 package edu.westga.cs3211.time_management.model;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 /**
  * Validate Event information.
@@ -36,8 +36,8 @@ public class EventDataValidator {
 	 * 
 	 * @return true if the start time is before the current time, false otherwise.
 	 */
-	public static boolean checkStartTime(LocalDateTime startTime) {
-		return !(startTime == null || startTime.isBefore(LocalDateTime.now()));
+	public static boolean checkStartTime(LocalDate startTime) {
+		return !(startTime == null || startTime.isBefore(LocalDate.now()));
 	}
 	
 	/**
@@ -50,10 +50,10 @@ public class EventDataValidator {
 	 * @postcondition none
 	 * 
 	 * @return true  if endTime is a valid time after startTime
-	 * 		   false if endTime is not valid or is not after startTime
+	 * 		   false if endTime is before startTime
 	 */
-	public static boolean checkEndTime(LocalDateTime startTime, LocalDateTime endTime) {
-		return !(startTime == null || endTime == null) && endTime.isAfter(startTime);
+	public static boolean checkEndTime(LocalDate startTime, LocalDate endTime) {
+		return !(startTime == null || endTime == null) && !endTime.isBefore(startTime);
 	}
 
 }

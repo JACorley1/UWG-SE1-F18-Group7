@@ -2,7 +2,6 @@ package edu.westga.cs3211.time_management.view;
 
 import java.net.URL;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.List;
 import java.util.Optional;
@@ -84,8 +83,8 @@ public class AddEvent {
     	if (!EventDataValidator.checkName(name)) {
     		errorText += "Name is invalid" + System.lineSeparator();
     	}
-    	LocalDateTime startTime = LocalDateTime.of(this.startTimeDate.getValue(), LocalTime.of(5, 0));
-    	LocalDateTime endTime = LocalDateTime.of(this.endTimeDate.getValue(), LocalTime.of(9, 0));
+    	LocalDate startTime = this.startTimeDate.getValue();
+    	LocalDate endTime = this.endTimeDate.getValue();
     	if (!EventDataValidator.checkStartTime(startTime)) {
     		errorText += "Start time is invalid" + System.lineSeparator();
     	} else if (!EventDataValidator.checkEndTime(startTime, endTime)) {
