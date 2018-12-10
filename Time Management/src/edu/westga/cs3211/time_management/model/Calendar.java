@@ -18,7 +18,7 @@ public class Calendar {
 	 * 
 	 * @return the collection of events in the calendar
 	 */
-	public ArrayList<Event> getEvents(){
+	public ArrayList<Event> getEvents() {
 		return this.events;
 	}
 	
@@ -40,7 +40,7 @@ public class Calendar {
 	 */
 	public void addEvent(Event event) {
 		if (event == null) {
-			throw new IllegalArgumentException("Event cannot be null");
+			throw new IllegalArgumentException("Added Event cannot be null");
 		}
 		
 		this.events.add(event);
@@ -57,19 +57,35 @@ public class Calendar {
 	 */
 	public List<Event> declareConflicts(Event event) {
 		if (event == null) {
-			throw new IllegalArgumentException("Event cannot be null");
+			throw new IllegalArgumentException("Checked Event cannot be null");
 		}
 		List<Event> conflicts = new ArrayList<Event>();
 		
-		for(Event current: this.events) {
-			if(!event.getStartTime().isBefore(current.getStartTime()) && !event.getStartTime().isAfter(current.getEndTime())) {
+		for (Event current: this.events) {
+			if (!event.getStartTime().isBefore(current.getStartTime()) && !event.getStartTime().isAfter(current.getEndTime())) {
 				conflicts.add(current);
 			}
-			if(!event.getEndTime().isBefore(current.getStartTime()) && !event.getEndTime().isAfter(current.getEndTime())) {
+			if (!event.getEndTime().isBefore(current.getStartTime()) && !event.getEndTime().isAfter(current.getEndTime())) {
 				conflicts.add(current);
 			}
 		}
 		
 		return conflicts;
+	}
+	
+	/**Removes the passed in event from the event list.
+	 * 
+	 * @precondition event != null
+	 * @postcondition getEvents().size() == getEvents().size()@pre - 1
+	 * 
+	 * @param event the event to remove
+	 * 
+	 * @return true if the event was removed, false if it was not present
+	 */
+	public boolean removeEvent(Event event) {
+		if (event == null) {
+			throw new IllegalArgumentException("Removed Event cannot be null");
+		}
+		return this.events.remove(event);
 	}
 }
