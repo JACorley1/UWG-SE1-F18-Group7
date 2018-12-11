@@ -2,8 +2,7 @@ package edu.westga.cs3211.time_management.test.event;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.time.LocalDateTime;
-import java.util.List;
+import java.time.LocalDate;
 
 import org.junit.jupiter.api.Test;
 
@@ -14,114 +13,93 @@ class TestConstructor {
 
 	@Test
 	void testInvalidName() {	
-		LocalDateTime start = LocalDateTime.now().plusDays(1);
-		LocalDateTime end = start.plusDays(1);
-		List<String> attendees = List.of();
+		LocalDate start = LocalDate.now().plusDays(1);
+		LocalDate end = start.plusDays(1);
 		
 		assertThrows(
 						IllegalArgumentException.class, 
 						()->{
-							new Event(null, start, end, "", "", attendees, Visibility.PUBLIC);
+							new Event(null, start, end, "", "", Visibility.PUBLIC);
 						}
 					);
 	}
 
 	@Test
 	void testInvalidStartTime() {		
-		LocalDateTime start = LocalDateTime.now().plusDays(1);
-		LocalDateTime end = start.plusDays(1);
-		List<String> attendees = List.of();
+		LocalDate start = LocalDate.now().plusDays(1);
+		LocalDate end = start.plusDays(1);
 			
 		assertThrows(
 						IllegalArgumentException.class, 
 						()->{
-							new Event("Bob", null, end, "", "", attendees, Visibility.PUBLIC);
+							new Event("Bob", null, end, "", "", Visibility.PUBLIC);
 						}
 					);
 	}
 
 	@Test
 	void testInvalidEndTime() {		
-		LocalDateTime start = LocalDateTime.now().plusDays(1);
-		List<String> attendees = List.of();
+		LocalDate start = LocalDate.now().plusDays(1);
 			
 		assertThrows(
 						IllegalArgumentException.class, 
 						()->{
-							new Event("Bob", start, null, "", "", attendees, Visibility.PUBLIC);
-						}
-					);
-	}
-
-	@Test
-	void testInvalidAttendees() {		
-		LocalDateTime start = LocalDateTime.now().plusDays(1);
-		LocalDateTime end = start.plusDays(1);
-			
-		assertThrows(
-						IllegalArgumentException.class, 
-						()->{
-							new Event("Bob", start, end, "", "", null, Visibility.PUBLIC);
+							new Event("Bob", start, null, "", "", Visibility.PUBLIC);
 						}
 					);
 	}
 
 	@Test
 	void testNullLocation() {		
-		LocalDateTime start = LocalDateTime.now().plusDays(1);
-		LocalDateTime end = start.plusDays(1);
-		List<String> attendees = List.of();
+		LocalDate start = LocalDate.now().plusDays(1);
+		LocalDate end = start.plusDays(1);
 			
 		assertThrows(
 						IllegalArgumentException.class, 
 						()->{
-							new Event("Bob", start, end, null, "", attendees, Visibility.PUBLIC);
+							new Event("Bob", start, end, null, "", Visibility.PUBLIC);
 						}
 					);
 	}
 
 	@Test
 	void testNullDescription() {		
-		LocalDateTime start = LocalDateTime.now().plusDays(1);
-		LocalDateTime end = start.plusDays(1);
-		List<String> attendees = List.of();
+		LocalDate start = LocalDate.now().plusDays(1);
+		LocalDate end = start.plusDays(1);
 			
 		assertThrows(
 						IllegalArgumentException.class, 
 						()->{
-							new Event("Bob", start, end, "", null, attendees, Visibility.PUBLIC);
+							new Event("Bob", start, end, "", null, Visibility.PUBLIC);
 						}
 					);
 	}
 
 	@Test
 	void testNullVisibility() {		
-		LocalDateTime start = LocalDateTime.now().plusDays(1);
-		LocalDateTime end = start.plusDays(1);
-		List<String> attendees = List.of();
+		LocalDate start = LocalDate.now().plusDays(1);
+		LocalDate end = start.plusDays(1);
 			
 		assertThrows(
 						IllegalArgumentException.class, 
 						()->{
-							new Event("Bob", start, end, "", "", attendees, null);
+							new Event("Bob", start, end, "", "", null);
 						}
 					);
 	}
 
 	@Test
 	void testValidEvent() {			
-		LocalDateTime start = LocalDateTime.now().plusDays(1);
-		LocalDateTime end = start.plusDays(1);
-		List<String> attendees = List.of();
+		LocalDate start = LocalDate.now().plusDays(1);
+		LocalDate end = start.plusDays(1);
 		
-		Event result = new Event("Bob", start, end, "location", "description", attendees, Visibility.PUBLIC);
+		Event result = new Event("Bob", start, end, "location", "description", Visibility.PUBLIC);
 		
 		assertEquals("Bob", result.getName(), "checking name");
 		assertEquals(start, result.getStartTime(), "checking start time");
 		assertEquals(end, result.getEndTime(), "checking end time");
 		assertEquals("location", result.getLocation(), "checking location");
 		assertEquals("description", result.getDescription(), "checking description");
-		assertEquals(attendees, result.getAttendees(), "checking attendees");
 		assertEquals(Visibility.PUBLIC, result.getVisibility(), "checking visibility");
 	}
 

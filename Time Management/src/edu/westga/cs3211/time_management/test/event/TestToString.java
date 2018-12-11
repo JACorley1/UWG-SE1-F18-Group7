@@ -2,8 +2,7 @@ package edu.westga.cs3211.time_management.test.event;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.time.LocalDateTime;
-import java.util.List;
+import java.time.LocalDate;
 
 import org.junit.jupiter.api.Test;
 
@@ -14,10 +13,9 @@ class TestToString {
 
 	@Test
 	void test() {
-		LocalDateTime start = LocalDateTime.now().plusDays(1);
-		LocalDateTime end = start.plusDays(1);
-		List<String> attendees = List.of();
-		Event event = new Event("Bob", start, end, "location", "description", attendees, Visibility.PUBLIC);
+		LocalDate start = LocalDate.now().plusDays(1);
+		LocalDate end = start.plusDays(1);
+		Event event = new Event("Bob", start, end, "location", "description", Visibility.PUBLIC);
 		
 		String result = event.toString();
 		

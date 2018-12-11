@@ -2,17 +2,12 @@ package edu.westga.cs3211.time_management.test.event_data_validator;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import org.junit.jupiter.api.Test;
 
 import edu.westga.cs3211.time_management.model.EventDataValidator;
 
-/**
- * 
- * @author Cody Graham, Kyle Riggs, Dylan Knox
- *
- */
 class TestCheckStartTime {
 
 	@Test
@@ -24,7 +19,7 @@ class TestCheckStartTime {
 	
 	@Test
 	void testStartTimeBeforeCurrentTime() {
-		LocalDateTime timeBeforeNow = LocalDateTime.now().minusMinutes(10);
+		LocalDate timeBeforeNow = LocalDate.now().minusDays(1);
 		
 		boolean result = EventDataValidator.checkStartTime(timeBeforeNow);
 		
@@ -33,7 +28,7 @@ class TestCheckStartTime {
 
 	@Test
 	void testStartTimeAtCurrentTime() {
-		LocalDateTime currentTime = LocalDateTime.now();
+		LocalDate currentTime = LocalDate.now();
 		
 		boolean result = EventDataValidator.checkStartTime(currentTime);
 		
@@ -42,7 +37,7 @@ class TestCheckStartTime {
 	
 	@Test
 	void testStartTimeAfterCurrentTime() {
-		LocalDateTime timeAfterNow = LocalDateTime.now().plusMinutes(10);
+		LocalDate timeAfterNow = LocalDate.now().plusDays(1);
 		
 		boolean result = EventDataValidator.checkStartTime(timeAfterNow);
 		
