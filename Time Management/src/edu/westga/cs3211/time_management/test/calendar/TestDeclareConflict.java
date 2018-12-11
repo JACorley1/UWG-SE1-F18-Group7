@@ -40,12 +40,14 @@ class TestDeclareConflict {
 	@Test
 	void testOneEventInCalendarEventIsBeforeCalendarEvent() {
 		Calendar calendar = new Calendar();
-		LocalDate start = LocalDate.now().plusDays(100);
-		LocalDate end = start.plusDays(1);
-		Event event1 = new Event("Bob", start, end, "location", "description", Visibility.PUBLIC);
+		LocalDate start1 = LocalDate.now().plusDays(100);
+		LocalDate end1 = start1.plusDays(1);
+		Event event1 = new Event("Bob", start1, end1, "location", "description", Visibility.PUBLIC);
 		calendar.addEvent(event1);
 		
-		Event event = new Event("Bob", start, end, "location", "description", Visibility.PUBLIC);
+		LocalDate start2 = end1.plusDays(1);
+		LocalDate end2 = start2.plusDays(1);
+		Event event = new Event("Bob", start2, end2, "location", "description", Visibility.PUBLIC);
 		
 		List<Event> result = calendar.declareConflicts(event);
 		
