@@ -150,10 +150,13 @@ public class UpdateEvent {
 
 		Event updatedEvent = new Event(name, startTime, endTime, location, description, visibility);
 
+		this.calendar.removeEvent(eventToUpdate);
+
 		List<Event> conflictingEvents = this.calendar.declareConflicts(updatedEvent);
 
 		String eventText = updatedEvent.toStringFull();
 		String conflictText = "";
+
 		for (Event currEvent : conflictingEvents) {
 			conflictText += currEvent.toString() + System.lineSeparator();
 		}
@@ -165,7 +168,6 @@ public class UpdateEvent {
 		Optional<ButtonType> result = alert.showAndWait();
 
 		if (result.isPresent() && result.get() == ButtonType.OK) {
-			this.calendar.removeEvent(eventToUpdate);
 			this.calendar.addEvent(updatedEvent);
 			((Node) event.getSource()).getScene().getWindow().hide();
 		}
