@@ -5,6 +5,8 @@ import java.time.LocalDate;
 /**
  * Validate Event information.
  * 
+ * 100% code coverage could not be reached because the class has only static methods.
+ * 
  * @author Dylan Knox, Kyle Riggs, Cody Graham, Tyler Wingfield, Jeremiah
  *         Liscum, Joseph Fuller, Jonathan Corley, Tristen Rivera, Tyler Scott,
  *         Dexter Tarver, Daniel Jeselnik, Dylan McCleskey, Justin Smith,
@@ -27,7 +29,6 @@ public class EventDataValidator {
 	
 	/**
 	 * Checks the start time, determining if it is before the current system time.
-	 * This is used when displaying user warning when creating events startng in the past.
 	 * 
 	 * @param startTime the starting time of the event
 	 * 
