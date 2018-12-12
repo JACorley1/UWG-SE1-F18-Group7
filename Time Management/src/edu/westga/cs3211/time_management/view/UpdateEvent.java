@@ -62,43 +62,43 @@ public class UpdateEvent {
 	private Button updateEventButton;
 
 	@FXML
-	public TextField nameText;
+	private TextField nameText;
 
 	@FXML
-	public DatePicker startTimeDate;
+	private DatePicker startTimeDate;
 
 	@FXML
-	public DatePicker endTimeDate;
+	private DatePicker endTimeDate;
 
 	@FXML
-	public ComboBox<Visibility> visibilityList;
+	private ComboBox<Visibility> visibilityList;
 
 	@FXML
-	public TextField locationText;
+	private TextField locationText;
 
 	@FXML
-	public TextField descriptionText;
+	private TextField descriptionText;
 
-	public Event eventToUpdate;
+	private Event eventToUpdate;
 
 	private Calendar calendar;
 
 	@FXML
 	void initialize() {
-		assert nameLabel != null : "fx:id=\"nameLabel\" was not injected: check your FXML file 'UpdateEvent.fxml'.";
-		assert startTimeLabel != null : "fx:id=\"startTimeLabel\" was not injected: check your FXML file 'UpdateEvent.fxml'.";
-		assert endTimeLabel != null : "fx:id=\"endTimeLabel\" was not injected: check your FXML file 'UpdateEvent.fxml'.";
-		assert visibilityLabel != null : "fx:id=\"visibilityLabel\" was not injected: check your FXML file 'UpdateEvent.fxml'.";
-		assert locationLabel != null : "fx:id=\"locationLabel\" was not injected: check your FXML file 'UpdateEvent.fxml'.";
-		assert descriptionLabel != null : "fx:id=\"descriptionLabel\" was not injected: check your FXML file 'UpdateEvent.fxml'.";
-		assert cancelButton != null : "fx:id=\"cancelButton\" was not injected: check your FXML file 'UpdateEvent.fxml'.";
-		assert updateEventButton != null : "fx:id=\"updateEventButton\" was not injected: check your FXML file 'UpdateEvent.fxml'.";
-		assert nameText != null : "fx:id=\"nameTextField\" was not injected: check your FXML file 'UpdateEvent.fxml'.";
-		assert startTimeDate != null : "fx:id=\"startTimeDatePicker\" was not injected: check your FXML file 'UpdateEvent.fxml'.";
-		assert endTimeDate != null : "fx:id=\"endTimeDatePicker\" was not injected: check your FXML file 'UpdateEvent.fxml'.";
-		assert visibilityList != null : "fx:id=\"visibilityComboBox\" was not injected: check your FXML file 'UpdateEvent.fxml'.";
-		assert locationText != null : "fx:id=\"locationTextField\" was not injected: check your FXML file 'UpdateEvent.fxml'.";
-		assert descriptionText != null : "fx:id=\"descriptionTextField\" was not injected: check your FXML file 'UpdateEvent.fxml'.";
+		assert this.nameLabel != null : "fx:id=\"nameLabel\" was not injected: check your FXML file 'UpdateEvent.fxml'.";
+		assert this.startTimeLabel != null : "fx:id=\"startTimeLabel\" was not injected: check your FXML file 'UpdateEvent.fxml'.";
+		assert this.endTimeLabel != null : "fx:id=\"endTimeLabel\" was not injected: check your FXML file 'UpdateEvent.fxml'.";
+		assert this.visibilityLabel != null : "fx:id=\"visibilityLabel\" was not injected: check your FXML file 'UpdateEvent.fxml'.";
+		assert this.locationLabel != null : "fx:id=\"locationLabel\" was not injected: check your FXML file 'UpdateEvent.fxml'.";
+		assert this.descriptionLabel != null : "fx:id=\"descriptionLabel\" was not injected: check your FXML file 'UpdateEvent.fxml'.";
+		assert this.cancelButton != null : "fx:id=\"cancelButton\" was not injected: check your FXML file 'UpdateEvent.fxml'.";
+		assert this.updateEventButton != null : "fx:id=\"updateEventButton\" was not injected: check your FXML file 'UpdateEvent.fxml'.";
+		assert this.nameText != null : "fx:id=\"nameTextField\" was not injected: check your FXML file 'UpdateEvent.fxml'.";
+		assert this.startTimeDate != null : "fx:id=\"startTimeDatePicker\" was not injected: check your FXML file 'UpdateEvent.fxml'.";
+		assert this.endTimeDate != null : "fx:id=\"endTimeDatePicker\" was not injected: check your FXML file 'UpdateEvent.fxml'.";
+		assert this.visibilityList != null : "fx:id=\"visibilityComboBox\" was not injected: check your FXML file 'UpdateEvent.fxml'.";
+		assert this.locationText != null : "fx:id=\"locationTextField\" was not injected: check your FXML file 'UpdateEvent.fxml'.";
+		assert this.descriptionText != null : "fx:id=\"descriptionTextField\" was not injected: check your FXML file 'UpdateEvent.fxml'.";
 	
 		this.visibilityList.setItems(FXCollections.observableArrayList());
 		this.visibilityList.getItems().add(Visibility.PUBLIC);
@@ -150,7 +150,7 @@ public class UpdateEvent {
 
 		Event updatedEvent = new Event(name, startTime, endTime, location, description, visibility);
 
-		this.calendar.removeEvent(eventToUpdate);
+		this.calendar.removeEvent(this.eventToUpdate);
 
 		List<Event> conflictingEvents = this.calendar.declareConflicts(updatedEvent);
 
@@ -188,4 +188,60 @@ public class UpdateEvent {
 		this.calendar = calendar;
 	}
 
+	/**
+	 * Gets name text.
+	 * @return name text
+	 */
+	public TextField getNameText() {
+		return this.nameText;
+	}
+
+	/**
+	 * gets start time date
+	 * @return start time date
+	 */
+	public DatePicker getStartTimeDate() {
+		return this.startTimeDate;
+	}
+
+	/**
+	 * gets end time date
+	 * @return end time date
+	 */
+	public DatePicker getEndTimeDate() {
+		return this.endTimeDate;
+	}
+
+	/**
+	 * gets visibility list
+	 * @return visibility list
+	 */
+	public ComboBox<Visibility> getVisibilityList() {
+		return this.visibilityList;
+	}
+
+	/**
+	 * gets location text
+	 * @return location text
+	 */
+	public TextField getLocationText() {
+		return this.locationText;
+	}
+
+	/**
+	 * gets description text
+	 * @return description text
+	 */
+	public TextField getDescriptionText() {
+		return this.descriptionText;
+	}
+
+	/**
+	 * sets event to update
+	 * 
+	 * @param eventToUpdate the event to update
+	 */
+	public void setEventToUpdate(Event eventToUpdate) {
+		this.eventToUpdate = eventToUpdate;
+	}
 }

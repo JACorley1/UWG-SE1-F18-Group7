@@ -80,13 +80,13 @@ public class MainWindow {
 		updateEventDialog.setCalendar(this.calendar);
 		Event selectedEvent = this.eventList.getSelectionModel().getSelectedItem();
 		if (selectedEvent != null) {
-			updateEventDialog.eventToUpdate = selectedEvent;
-			updateEventDialog.nameText.setText(selectedEvent.getName());
-			updateEventDialog.startTimeDate.setValue(selectedEvent.getStartTime());
-			updateEventDialog.endTimeDate.setValue(selectedEvent.getEndTime());
-			updateEventDialog.visibilityList.setValue(selectedEvent.getVisibility());
-			updateEventDialog.locationText.setText(selectedEvent.getLocation());
-			updateEventDialog.descriptionText.setText(selectedEvent.getDescription());
+			updateEventDialog.setEventToUpdate(selectedEvent);
+			updateEventDialog.getNameText().setText(selectedEvent.getName());
+			updateEventDialog.getStartTimeDate().setValue(selectedEvent.getStartTime());
+			updateEventDialog.getEndTimeDate().setValue(selectedEvent.getEndTime());
+			updateEventDialog.getVisibilityList().setValue(selectedEvent.getVisibility());
+			updateEventDialog.getLocationText().setText(selectedEvent.getLocation());
+			updateEventDialog.getDescriptionText().setText(selectedEvent.getDescription());
 			updateEventStage.showAndWait();
 		}
 		
@@ -104,10 +104,10 @@ public class MainWindow {
 
 	@FXML
 	void initialize() {
-		assert eventList != null : "fx:id=\"eventList\" was not injected: check your FXML file 'MainWindow.fxml'.";
-		assert eventDetailsText != null : "fx:id=\"eventDetailsText\" was not injected: check your FXML file 'MainWindow.fxml'.";
-		assert updateEventButton != null : "fx:id=\"updateEventButton\" was not injected: check your FXML file 'MainWindow.fxml'.";
-		assert addEventButton != null : "fx:id=\"addEventButton\" was not injected: check your FXML file 'MainWindow.fxml'.";
+		assert this.eventList != null : "fx:id=\"eventList\" was not injected: check your FXML file 'MainWindow.fxml'.";
+		assert this.eventDetailsText != null : "fx:id=\"eventDetailsText\" was not injected: check your FXML file 'MainWindow.fxml'.";
+		assert this.updateEventButton != null : "fx:id=\"updateEventButton\" was not injected: check your FXML file 'MainWindow.fxml'.";
+		assert this.addEventButton != null : "fx:id=\"addEventButton\" was not injected: check your FXML file 'MainWindow.fxml'.";
 
 		this.calendar = new Calendar();
 		this.eventList.setItems(FXCollections.observableArrayList(this.calendar.getEvents()));

@@ -64,20 +64,20 @@ public class ConfirmEvent {
 
 	@FXML
 	void initialize() {
-		assert nameLabel != null : "fx:id=\"nameLabel\" was not injected: check your FXML file 'ConfirmEvent.fxml'.";
-		assert startTimeLabel != null : "fx:id=\"startTimeLabel\" was not injected: check your FXML file 'ConfirmEvent.fxml'.";
-		assert endTimeLabel != null : "fx:id=\"endTimeLabel\" was not injected: check your FXML file 'ConfirmEvent.fxml'.";
-		assert visibilityLabel != null : "fx:id=\"visibilityLabel\" was not injected: check your FXML file 'ConfirmEvent.fxml'.";
-		assert locationLabel != null : "fx:id=\"locationLabel\" was not injected: check your FXML file 'ConfirmEvent.fxml'.";
-		assert descriptionLabel != null : "fx:id=\"descriptionLabel\" was not injected: check your FXML file 'ConfirmEvent.fxml'.";
-		assert cancelButton != null : "fx:id=\"cancelButton\" was not injected: check your FXML file 'ConfirmEvent.fxml'.";
-		assert confirmButton != null : "fx:id=\"confirmButton\" was not injected: check your FXML file 'ConfirmEvent.fxml'.";
-		assert nameConfirmationLabel != null : "fx:id=\"nameConfirmationLabel\" was not injected: check your FXML file 'ConfirmEvent.fxml'.";
-		assert startTimeConfirmationLabel != null : "fx:id=\"startTimeConfirmationLabel\" was not injected: check your FXML file 'ConfirmEvent.fxml'.";
-		assert endTimeConfirmationLabel != null : "fx:id=\"endTimeConfirmationLabel\" was not injected: check your FXML file 'ConfirmEvent.fxml'.";
-		assert visibilityConfirmationLabel != null : "fx:id=\"visibilityConfirmationLabel\" was not injected: check your FXML file 'ConfirmEvent.fxml'.";
-		assert locationConfirmationLabel != null : "fx:id=\"locationConfirmationLabel\" was not injected: check your FXML file 'ConfirmEvent.fxml'.";
-		assert descriptionConfirmationLabel != null : "fx:id=\"descriptionConfirmationLabel\" was not injected: check your FXML file 'ConfirmEvent.fxml'.";
+		assert this.nameLabel != null : "fx:id=\"nameLabel\" was not injected: check your FXML file 'ConfirmEvent.fxml'.";
+		assert this.startTimeLabel != null : "fx:id=\"startTimeLabel\" was not injected: check your FXML file 'ConfirmEvent.fxml'.";
+		assert this.endTimeLabel != null : "fx:id=\"endTimeLabel\" was not injected: check your FXML file 'ConfirmEvent.fxml'.";
+		assert this.visibilityLabel != null : "fx:id=\"visibilityLabel\" was not injected: check your FXML file 'ConfirmEvent.fxml'.";
+		assert this.locationLabel != null : "fx:id=\"locationLabel\" was not injected: check your FXML file 'ConfirmEvent.fxml'.";
+		assert this.descriptionLabel != null : "fx:id=\"descriptionLabel\" was not injected: check your FXML file 'ConfirmEvent.fxml'.";
+		assert this.cancelButton != null : "fx:id=\"cancelButton\" was not injected: check your FXML file 'ConfirmEvent.fxml'.";
+		assert this.confirmButton != null : "fx:id=\"confirmButton\" was not injected: check your FXML file 'ConfirmEvent.fxml'.";
+		assert this.nameConfirmationLabel != null : "fx:id=\"nameConfirmationLabel\" was not injected: check your FXML file 'ConfirmEvent.fxml'.";
+		assert this.startTimeConfirmationLabel != null : "fx:id=\"startTimeConfirmationLabel\" was not injected: check your FXML file 'ConfirmEvent.fxml'.";
+		assert this.endTimeConfirmationLabel != null : "fx:id=\"endTimeConfirmationLabel\" was not injected: check your FXML file 'ConfirmEvent.fxml'.";
+		assert this.visibilityConfirmationLabel != null : "fx:id=\"visibilityConfirmationLabel\" was not injected: check your FXML file 'ConfirmEvent.fxml'.";
+		assert this.locationConfirmationLabel != null : "fx:id=\"locationConfirmationLabel\" was not injected: check your FXML file 'ConfirmEvent.fxml'.";
+		assert this.descriptionConfirmationLabel != null : "fx:id=\"descriptionConfirmationLabel\" was not injected: check your FXML file 'ConfirmEvent.fxml'.";
 
 	}
 }
