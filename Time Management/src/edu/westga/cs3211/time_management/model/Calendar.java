@@ -66,6 +66,8 @@ public class Calendar {
 				conflicts.add(current);
 			} else if (!event.getEndTime().isBefore(current.getStartTime()) && !event.getEndTime().isAfter(current.getEndTime())) {
 				conflicts.add(current);
+			} else if (event.getStartTime().isBefore(current.getStartTime()) && event.getEndTime().isAfter(current.getEndTime())) {
+				conflicts.add(current);
 			}
 		}
 		
