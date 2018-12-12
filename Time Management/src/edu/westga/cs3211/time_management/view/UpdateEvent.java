@@ -121,23 +121,15 @@ public class UpdateEvent {
 
 	@FXML
 	void updateEvent(ActionEvent event) {
-		String errorText = "";
 		String name = this.nameText.getText();
-		if (!EventDataValidator.checkName(name)) {
-			errorText += "Name is invalid" + System.lineSeparator();
-		}
 		LocalDate startTime = this.startTimeDate.getValue();
 		LocalDate endTime = this.endTimeDate.getValue();
-		if (!EventDataValidator.checkStartTime(startTime)) {
-			errorText += "Start time is invalid" + System.lineSeparator();
-		} else if (!EventDataValidator.checkEndTime(startTime, endTime)) {
-			errorText += "End time is invalid" + System.lineSeparator();
-		}
+		String errorText = "";
+		errorText = this.validateData(name, startTime, endTime, errorText);
 		if (!errorText.isEmpty()) {
 			this.displayErrorMessage(errorText);
 			return;
 		}
-
 		String location = this.locationText.getText();
 		if (location == null) {
 			location = "";
@@ -147,30 +139,39 @@ public class UpdateEvent {
 			description = "";
 		}
 		Visibility visibility = this.visibilityList.getValue();
-
 		Event updatedEvent = new Event(name, startTime, endTime, location, description, visibility);
-
 		this.calendar.removeEvent(this.eventToUpdate);
-
 		List<Event> conflictingEvents = this.calendar.declareConflicts(updatedEvent);
-
 		String eventText = updatedEvent.toStringFull();
-		String conflictText = "";
-
-		for (Event currEvent : conflictingEvents) {
-			conflictText += currEvent.toString() + System.lineSeparator();
-		}
-		String eventSummaryAndConflictText = "UPDATE EVENT DETAILS" + System.lineSeparator() + eventText
-				+ System.lineSeparator() + "CONFLICTING EVENTS" + conflictText;
+		String conflictText = this.checkConflicts(conflictingEvents);
+		String eventSummaryAndConflictText = "UPDATE EVENT DETAILS" + System.lineSeparator() + eventText + System.lineSeparator() + "CONFLICTING EVENTS" + conflictText;
 		Alert alert = new Alert(AlertType.CONFIRMATION, eventSummaryAndConflictText);
 		alert.setTitle("Create New Event?");
-
 		Optional<ButtonType> result = alert.showAndWait();
-
 		if (result.isPresent() && result.get() == ButtonType.OK) {
 			this.calendar.addEvent(updatedEvent);
 			((Node) event.getSource()).getScene().getWindow().hide();
 		}
+	}
+
+	private String checkConflicts(List<Event> conflictingEvents) {
+		String conflictText = "";
+		for (Event currEvent : conflictingEvents) {
+			conflictText += currEvent.toString() + System.lineSeparator();
+		}
+		return conflictText;
+	}
+
+	private String validateData(String name, LocalDate startTime, LocalDate endTime, String errorText) {
+		if (!EventDataValidator.checkName(name)) {
+			errorText += "Name is invalid" + System.lineSeparator();
+		}
+		if (!EventDataValidator.checkStartTime(startTime)) {
+			errorText += "Start time is invalid" + System.lineSeparator();
+		} else if (!EventDataValidator.checkEndTime(startTime, endTime)) {
+			errorText += "End time is invalid" + System.lineSeparator();
+		}
+		return errorText;
 	}
 
 	/**
