@@ -61,22 +61,24 @@ public class UpdateEvent {
 	private Button updateEventButton;
 
 	@FXML
-	private TextField nameText;
+	public TextField nameText;
 
 	@FXML
-	private DatePicker startTimeDate;
+	public DatePicker startTimeDate;
 
 	@FXML
-	private DatePicker endTimeDate;
+	public DatePicker endTimeDate;
 
 	@FXML
-	private ComboBox<Visibility> visibilityList;
+	public ComboBox<Visibility> visibilityList;
 
 	@FXML
-	private TextField locationText;
+	public TextField locationText;
 
 	@FXML
-	private TextField descriptionText;
+	public TextField descriptionText;
+	
+	public Event eventToUpdate;
 
 	private Calendar calendar;
 
@@ -154,7 +156,7 @@ public class UpdateEvent {
 		Optional<ButtonType> result = alert.showAndWait();
 
 		if (result.isPresent() && result.get() == ButtonType.OK) {
-		//	this.calendar.removeEvent(event);
+			this.calendar.removeEvent(eventToUpdate);
 			this.calendar.addEvent(updatedEvent);
 			((Node) event.getSource()).getScene().getWindow().hide();
 		}

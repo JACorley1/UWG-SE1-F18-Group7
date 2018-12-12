@@ -78,7 +78,18 @@ public class MainWindow {
 		updateEventStage.initModality(Modality.APPLICATION_MODAL);
 		UpdateEvent updateEventDialog = loader.getController();
 		updateEventDialog.setCalendar(this.calendar);
-		updateEventStage.showAndWait();
+		Event selectedEvent = this.eventList.getSelectionModel().getSelectedItem();
+		if (selectedEvent != null) {
+			updateEventDialog.eventToUpdate = selectedEvent;
+			updateEventDialog.nameText.setText(selectedEvent.getName());
+			updateEventDialog.startTimeDate.setValue(selectedEvent.getStartTime());
+			updateEventDialog.endTimeDate.setValue(selectedEvent.getEndTime());
+			updateEventDialog.visibilityList.setValue(selectedEvent.getVisibility());
+			updateEventDialog.locationText.setText(selectedEvent.getLocation());
+			updateEventDialog.descriptionText.setText(selectedEvent.getDescription());
+			updateEventStage.showAndWait();
+		}
+		
 
 		this.eventList.setItems(FXCollections.observableArrayList(this.calendar.getEvents()));
 	}
