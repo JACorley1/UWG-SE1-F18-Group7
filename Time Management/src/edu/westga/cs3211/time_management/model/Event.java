@@ -2,44 +2,43 @@ package edu.westga.cs3211.time_management.model;
 
 import java.time.LocalDate;
 
-/** Store basic information for an event.
+/**
+ * Store basic information for an event.
  * 
  * @author Lucas Carlson, Carson Bedrosian, Nolan Williams, Kevin Flynn,
- *         Jonathan Corley, Tristen Rivera, Tyler Scott, Dexter Tarver,
- *         Jonathan Nicholl
+ *         Jonathan Corley, Tristen Rivera, Tyler Scott, Dexter Tarver, Jonathan
+ *         Nicholl
  */
 public class Event {
-	
+
 	private String name;
 	private LocalDate startTime;
 	private LocalDate endTime;
 	private String location;
 	private String description;
 	private Visibility visibility;
-	
-	/** Creates a new Event
+
+	/**
+	 * Creates a new Event
 	 * 
 	 * @precondition EventDataValidator.checkName(name) &&
-	 * 				 EventDataValidator.checkStartTime(start) &&
-	 * 				 EventDataValidator.checkEndTime(start, end) &&
-	 * 				 location != null &&
-	 * 				 description != null &&
-	 * 				 visibility != null
-	 * @postcondition getName() == name &&
-	 * 				  getStartTime() == startTime &&
-	 * 				  getEndTime() == endTime &&
-	 * 				  getLocation() == location &&
-	 * 				  getDescription() == description &&
-	 * 				  getVisibility() == visibility
+	 *               EventDataValidator.checkStartTime(start) &&
+	 *               EventDataValidator.checkEndTime(start, end) && location != null
+	 *               && description != null && visibility != null
+	 * @postcondition getName() == name && getStartTime() == startTime &&
+	 *                getEndTime() == endTime && getLocation() == location &&
+	 *                getDescription() == description && getVisibility() ==
+	 *                visibility
 	 * 
-	 * @param name name of the event
-	 * @param start start time for the event
-	 * @param end end time for the event
-	 * @param location location for the event
+	 * @param name        name of the event
+	 * @param start       start time for the event
+	 * @param end         end time for the event
+	 * @param location    location for the event
 	 * @param description description of the event
-	 * @param visibility visibility of the event
+	 * @param visibility  visibility of the event
 	 */
-	public Event(String name, LocalDate start, LocalDate end, String location, String description, Visibility visibility) {
+	public Event(String name, LocalDate start, LocalDate end, String location, String description,
+			Visibility visibility) {
 		if (!EventDataValidator.checkName(name)) {
 			throw new IllegalArgumentException("Invalid name");
 		}
@@ -66,7 +65,8 @@ public class Event {
 		this.visibility = visibility;
 	}
 
-	/** return the name of the event
+	/**
+	 * return the name of the event
 	 * 
 	 * @precondition none
 	 * @postcondition none
@@ -77,7 +77,8 @@ public class Event {
 		return this.name;
 	}
 
-	/** return the start time of the event
+	/**
+	 * return the start time of the event
 	 * 
 	 * @precondition none
 	 * @postcondition none
@@ -88,7 +89,8 @@ public class Event {
 		return this.startTime;
 	}
 
-	/** return the end time of the event
+	/**
+	 * return the end time of the event
 	 * 
 	 * @precondition none
 	 * @postcondition none
@@ -99,7 +101,8 @@ public class Event {
 		return this.endTime;
 	}
 
-	/** return the location of the event
+	/**
+	 * return the location of the event
 	 * 
 	 * @precondition none
 	 * @postcondition none
@@ -110,7 +113,8 @@ public class Event {
 		return this.location;
 	}
 
-	/** return the description of the event
+	/**
+	 * return the description of the event
 	 * 
 	 * @precondition none
 	 * @postcondition none
@@ -121,7 +125,8 @@ public class Event {
 		return this.description;
 	}
 
-	/** return the visibility of the event
+	/**
+	 * return the visibility of the event
 	 * 
 	 * @precondition none
 	 * @postcondition none
@@ -132,8 +137,8 @@ public class Event {
 		return this.visibility;
 	}
 
-
-	/** Convert the Event to a String representation.
+	/**
+	 * Convert the Event to a String representation.
 	 * 
 	 * @precondition none
 	 * @postcondition none
@@ -144,8 +149,9 @@ public class Event {
 	public String toString() {
 		return this.name + "(" + this.startTime + "," + this.endTime + ")";
 	}
-	
-	/** Generate a multi-line full string representation of the event.
+
+	/**
+	 * Generate a multi-line full string representation of the event.
 	 * 
 	 * @precondition none
 	 * @postcondition none
@@ -160,8 +166,8 @@ public class Event {
 		fullEventDetails += "Location: " + this.location + System.lineSeparator();
 		fullEventDetails += "Description: " + this.description + System.lineSeparator();
 		fullEventDetails += "Visibility: " + this.visibility + System.lineSeparator();
-		
+
 		return fullEventDetails;
 	}
-	
+
 }

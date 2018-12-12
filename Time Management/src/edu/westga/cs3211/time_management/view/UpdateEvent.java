@@ -10,6 +10,7 @@ import edu.westga.cs3211.time_management.model.Calendar;
 import edu.westga.cs3211.time_management.model.Event;
 import edu.westga.cs3211.time_management.model.EventDataValidator;
 import edu.westga.cs3211.time_management.model.Visibility;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -77,7 +78,7 @@ public class UpdateEvent {
 
 	@FXML
 	public TextField descriptionText;
-	
+
 	public Event eventToUpdate;
 
 	private Calendar calendar;
@@ -98,6 +99,14 @@ public class UpdateEvent {
 		assert visibilityList != null : "fx:id=\"visibilityComboBox\" was not injected: check your FXML file 'UpdateEvent.fxml'.";
 		assert locationText != null : "fx:id=\"locationTextField\" was not injected: check your FXML file 'UpdateEvent.fxml'.";
 		assert descriptionText != null : "fx:id=\"descriptionTextField\" was not injected: check your FXML file 'UpdateEvent.fxml'.";
+	
+		this.visibilityList.setItems(FXCollections.observableArrayList());
+		this.visibilityList.getItems().add(Visibility.PUBLIC);
+		this.visibilityList.getItems().add(Visibility.PRIVATE);
+		this.visibilityList.getItems().add(Visibility.FRIENDS_ONLY);
+		this.visibilityList.setValue(Visibility.PUBLIC);
+		this.startTimeDate.setValue(LocalDate.now());
+		this.endTimeDate.setValue(LocalDate.now());
 	}
 
 	private void displayErrorMessage(String errorMessage) {
