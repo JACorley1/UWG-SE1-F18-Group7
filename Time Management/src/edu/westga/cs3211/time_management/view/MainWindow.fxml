@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane minHeight="451.0" minWidth="574.0" prefHeight="468.0" prefWidth="578.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.westga.cs3211.time_management.view.MainWindow">
+<AnchorPane minHeight="451.0" minWidth="574.0" prefHeight="468.0" prefWidth="578.0" xmlns="http://javafx.com/javafx/8.0.161-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.westga.cs3211.time_management.view.MainWindow">
    <children>
       <ListView fx:id="eventList" layoutX="296.0" layoutY="38.0" onMouseClicked="#selectEvent" prefHeight="374.0" prefWidth="268.0" />
       <TextArea fx:id="eventDetailsText" layoutX="14.0" layoutY="38.0" prefHeight="374.0" prefWidth="268.0" />
