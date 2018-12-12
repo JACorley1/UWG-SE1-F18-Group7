@@ -17,11 +17,11 @@
       <Label fx:id="descriptionLabel" layoutX="17.0" layoutY="174.0" text="Description:" />
       <Button fx:id="cancelButton" layoutX="18.0" layoutY="208.0" mnemonicParsing="false" onAction="#cancel" text="Cancel" />
       <Button fx:id="addEventButton" layoutX="213.0" layoutY="208.0" mnemonicParsing="false" onAction="#addEvent" text="Add Event" />
-      <TextField fx:id="nameText" layoutX="116.0" layoutY="14.0" prefWidth="185.0" />
-      <DatePicker fx:id="startTimeDate" layoutX="168.0" layoutY="45.0" prefHeight="25.0" prefWidth="133.0" />
-      <DatePicker fx:id="endTimeDate" layoutX="168.0" layoutY="77.0" prefHeight="25.0" prefWidth="133.0" />
-      <ComboBox fx:id="visibilityList" layoutX="168.0" layoutY="107.0" prefHeight="25.0" prefWidth="133.0" />
-      <TextField fx:id="locationText" layoutX="152.0" layoutY="139.0" />
-      <TextField fx:id="descriptionText" layoutX="152.0" layoutY="170.0" />
+      <TextField fx:id="nameText" layoutX="116.0" layoutY="14.0" prefWidth="185.0" promptText="Christmas" />
+      <DatePicker fx:id="startTimeDate" layoutX="168.0" layoutY="45.0" prefHeight="25.0" prefWidth="133.0" promptText="12/25/2018" />
+      <DatePicker fx:id="endTimeDate" layoutX="168.0" layoutY="77.0" prefHeight="25.0" prefWidth="133.0" promptText="12/25/2018" />
+      <ComboBox fx:id="visibilityList" layoutX="168.0" layoutY="107.0" prefHeight="25.0" prefWidth="133.0" promptText="Private" />
+      <TextField fx:id="locationText" layoutX="152.0" layoutY="139.0" promptText="The North Pole" />
+      <TextField fx:id="descriptionText" layoutX="152.0" layoutY="170.0" promptText="The Christmas Party" />
    </children>
 </AnchorPane>
