@@ -9,7 +9,7 @@
 
 <AnchorPane prefHeight="245.0" prefWidth="314.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.westga.cs3211.time_management.view.UpdateEvent">
    <children>
-      <Label fx:id="nameLabel" layoutX="17.0" layoutY="18.0" text="Name:" />
+      <Label fx:id="nameLabel" layoutX="17.0" layoutY="18.0" text="Name*:" />
       <Label fx:id="startTimeLabel" layoutX="17.0" layoutY="49.0" text="Start Time*:" />
       <Label fx:id="endTimeLabel" layoutX="17.0" layoutY="81.0" text="End Time*:" />
       <Label fx:id="visibilityLabel" layoutX="17.0" layoutY="111.0" text="Visibility*:" />
